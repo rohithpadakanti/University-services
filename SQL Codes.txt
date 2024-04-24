@@ -1,0 +1,109 @@
+create database Project;
+
+use Project;
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY, -- Auto-incremented and primary key
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50),
+    address VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    email VARCHAR(50) UNIQUE NOT NULL, -- Unique and not null constraint added
+    date_of_birth DATE NOT NULL
+);
+select * from students;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+select * from users;
+
+CREATE TABLE Course (
+    CourseID INT PRIMARY KEY,
+    CourseName VARCHAR(255),
+    InstructorName VARCHAR(255),
+    StartTime TIME,
+    EndTime TIME,
+    RoomNumber VARCHAR(50)
+);
+CREATE TABLE Enrolment (
+    EnrolmentID INT PRIMARY KEY,
+    student_id INT,
+    CourseID INT,
+    Grade VARCHAR(2), -- Assuming grades are stored as strings, adjust datatype as needed
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+
+CREATE TABLE Schedule (
+    student_id INT,
+    CourseID INT,
+    StartTime TIME,
+    EndTime TIME,
+    RoomNumber VARCHAR(50),
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+
+CREATE TABLE Department (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(255)
+);
+
+CREATE TABLE Professor (
+    ProfessorID INT PRIMARY KEY,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    Address VARCHAR(255),
+    PhoneNumber VARCHAR(20),
+    Email VARCHAR(255)
+);
+
+CREATE TABLE Assignment (
+    AssignmentID INT PRIMARY KEY,
+    CourseID INT,
+    AssignmentName VARCHAR(255),
+    Deadline DATE,
+    Description TEXT,
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+CREATE TABLE Attendance (
+    AttendanceID INT PRIMARY KEY,
+    student_id INT,
+    CourseID INT,
+    Date DATE,
+    AttendanceStatus VARCHAR(50),
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+
+
+INSERT INTO students (first_name, last_name, address, phone_number, email, date_of_birth)
+VALUES ('John', 'Doe', '123 Main St', '123-456-7890', 'john.doe@example.com', '2000-01-01');
+
+UPDATE students
+SET email = 'new_email@example.com'
+WHERE student_id = 1;
+
+SELECT * FROM students WHERE first_name LIKE 'John%';
+
+DELETE FROM students WHERE student_id = 2;
+SELECT * From students;
+
+INSERT INTO students (first_name, last_name, address, phone_number, email, date_of_birth)
+VALUES 
+    ('Jane', 'Smith', '456 Elm St', '987-654-3210', 'jane.smith@example.com', '1999-05-15'),
+    ('Alice', 'Johnson', '789 Oak St', '555-123-4567', 'alice.johnson@example.com', '2001-09-30');
+
+SELECT * FROM students WHERE first_name = 'John';
+
+SELECT * FROM students WHERE address LIKE '%New York%';
+
+SELECT * FROM students WHERE date_of_birth > '2000-01-01';
+
+SELECT * FROM students WHERE phone_number = '123-456-7890';
+
+SELECT * FROM students WHERE email LIKE '%@example.com';

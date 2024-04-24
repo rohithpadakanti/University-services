@@ -1,0 +1,41 @@
+.card {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    margin: 0 auto;
+}
+
+.card-header {
+    height: 40px;
+    background: #5d6770;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.card-header p {
+    font-size: 20px;
+    margin: 0;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.btn-edit {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5d6770;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-edit:hover {
+    background-color: #44505a;
+}

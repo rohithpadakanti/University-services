@@ -1,0 +1,64 @@
+/* Home.css */
+
+.styled-table {
+    border-collapse: collapse;
+    margin: auto;
+    font-size: 1em; /* Increase font size */
+    font-family: Arial, sans-serif; /* Change font family */
+    max-width: 100%; /* Ensure table width fits container */
+    width: 100%; /* Ensure table width fits container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soften box shadow */
+}
+
+.styled-table thead tr {
+    background-color: #333; /* Darken header background color */
+    color: #fff; /* Change header text color to white */
+    text-align: center; /* Center align header text */
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #ddd; /* Lighten border color */
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9; /* Lighten even row background color */
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: none; /* Remove border from last row */
+}
+
+.btn {
+    border: none;
+    color: white;
+    padding: 8px 12px; /* Increase button padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 14px; /* Decrease button font size */
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background-color: #007bff; /* Change edit button color */
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Change delete button color */
+}
+
+.btn-view {
+    background-color: #6c757d; /* Change view button color */
+}
+
+.btn-contact {
+    background-color: #28a745; /* Change add contact button color */
+    margin-bottom: 10px;
+}
